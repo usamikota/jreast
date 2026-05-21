@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JR東日本スタートアッププログラム2026春｜skyer提案書 v4.0 FINAL</title>
+<style>
+  :root {
+    --jr-green: #008752;
+    --jr-dark: #1a3a2a;
+    --accent: #d97706;
+    --animal: #b45309;
+    --tech: #0369a1;
+    --skydog: #ea580c;
+    --kemono: #6366f1;
+    --commit: #be123c;
+    --earth: #15803d;
+    --bg: #fafaf7;
+    --paper: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --highlight: #fef3c7;
+    --wildlife: #ecfdf5;
+    --techbg: #eff6ff;
+    --skydogbg: #fff7ed;
+    --kemonobg: #eef2ff;
+    --commitbg: #fff1f2;
+    --earthbg: #f0fdf4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.85;
+    margin: 0; padding: 40px 20px;
+  }
+  .container {
+    max-width: 920px; margin: 0 auto; background: var(--paper);
+    padding: 60px 70px; box-shadow: 0 2px 20px rgba(0,0,0,0.05); border-radius: 8px;
+  }
+  .header {
+    border-top: 6px solid var(--jr-green);
+    margin: -60px -70px 50px;
+    padding: 40px 70px 30px;
+    background: linear-gradient(135deg, #f0f7f3 0%, #ecfdf5 50%, #f0fdf4 100%);
+  }
+  .meta { color: var(--muted); font-size: 13px; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .title {
+    font-size: 30px; font-weight: 800; color: var(--jr-dark);
+    line-height: 1.45; margin: 0 0 12px; letter-spacing: -0.01em;
+  }
+  .subtitle { font-size: 15px; color: var(--jr-green); font-weight: 600; margin: 0 0 24px; }
+  .oneliner {
+    background: var(--jr-dark); color: #fff;
+    padding: 26px 30px; border-radius: 6px;
+    font-size: 16px; line-height: 1.9; font-weight: 600;
+  }
+  .oneliner strong { color: #ffd966; }
+  .oneliner .wildlife-tag { color: #6ee7b7; }
+
+  h2 {
+    color: var(--jr-dark); font-size: 22px;
+    margin: 50px 0 20px; padding: 12px 0 12px 18px;
+    border-left: 6px solid var(--jr-green); background: #f5faf7;
+  }
+  h2.wildlife-section { border-left-color: var(--animal); background: var(--wildlife); }
+  h2.product-section { border-left-color: var(--skydog); background: linear-gradient(90deg, var(--skydogbg) 0%, var(--kemonobg) 100%); }
+  h2.commit-section { border-left-color: var(--commit); background: var(--commitbg); }
+  h2.tech-section { border-left-color: var(--tech); background: var(--techbg); }
+
+  h3 {
+    color: var(--jr-green); font-size: 17px;
+    margin: 28px 0 12px; padding-bottom: 6px;
+    border-bottom: 2px dotted var(--border);
+  }
+  p { margin: 12px 0; }
+
+  table {
+    border-collapse: collapse; width: 100%;
+    margin: 16px 0; font-size: 14px;
+  }
+  th, td {
+    border: 1px solid var(--border); padding: 10px 14px;
+    text-align: left; vertical-align: top;
+  }
+  th { background: #f0f7f3; color: var(--jr-dark); font-weight: 700; }
+  td.center { text-align: center; }
+
+  .callout {
+    background: var(--highlight); border-left: 4px solid var(--accent);
+    padding: 14px 18px; margin: 18px 0; border-radius: 4px; font-size: 14px;
+  }
+  .callout-wildlife { background: var(--wildlife); border-left-color: var(--animal); }
+  .callout-tech { background: var(--techbg); border-left-color: var(--tech); }
+  .callout-commit { background: var(--commitbg); border-left-color: var(--commit); }
+  .callout-product { background: linear-gradient(90deg, var(--skydogbg) 0%, var(--kemonobg) 100%); border-left-color: var(--skydog); }
+
+  .pillar {
+    background: #f5faf7; border: 1px solid #d6eadd;
+    border-radius: 6px; padding: 20px 24px; margin: 14px 0;
+  }
+  .pillar.wildlife-pillar { background: var(--wildlife); border-color: #a7f3d0; }
+  .pillar-title {
+    font-weight: 800; color: var(--jr-dark);
+    font-size: 16px; margin-bottom: 8px;
+  }
+  .pillar-icon {
+    display: inline-block; width: 28px; height: 28px;
+    background: var(--jr-green); color: #fff; border-radius: 50%;
+    text-align: center; line-height: 28px;
+    font-weight: 700; margin-right: 8px; font-size: 14px;
+  }
+  .pillar.wildlife-pillar .pillar-icon { background: var(--animal); }
+
+  .triple-shield { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+  .shield-box { background: #f5faf7; border: 2px solid var(--jr-green); border-radius: 8px; padding: 22px; }
+  .shield-box.wildlife { background: var(--earthbg); border-color: var(--earth); }
+  .shield-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.1em; font-weight: 700; }
+  .shield-title { font-size: 16px; font-weight: 800; color: var(--jr-dark); margin-bottom: 10px; }
+  .shield-box.wildlife .shield-title { color: var(--earth); }
+  .shield-desc { font-size: 13px; color: var(--text); line-height: 1.7; }
+  .shield-desc ul { padding-left: 18px; margin: 4px 0; }
+  .shield-desc li { margin: 4px 0; }
+
+  /* Product cards */
+  .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 20px 0; }
+  .product-card { border-radius: 10px; padding: 24px; border: 2px solid; }
+  .product-card.skydog { background: var(--skydogbg); border-color: var(--skydog); }
+  .product-card.kemono { background: var(--kemonobg); border-color: var(--kemono); }
+  .product-brand { font-size: 11px; letter-spacing: 0.15em; margin-bottom: 4px; font-weight: 700; }
+  .product-brand.skydog { color: var(--skydog); }
+  .product-brand.kemono { color: var(--kemono); }
+  .product-name { font-size: 26px; font-weight: 800; letter-spacing: 0.02em; margin-bottom: 8px; }
+  .product-name.skydog { color: var(--skydog); }
+  .product-name.kemono { color: var(--kemono); }
+  .product-tagline { font-size: 13px; color: var(--text); font-weight: 600; margin-bottom: 12px; }
+
+  .commit-card {
+    background: #fff; border: 1px solid #fecdd3;
+    border-left: 4px solid var(--commit);
+    border-radius: 6px; padding: 16px 20px; margin: 12px 0;
+  }
+  .commit-card-title {
+    font-weight: 800; color: var(--commit); font-size: 15px; margin-bottom: 6px;
+  }
+
+  .layer-card {
+    background: #fff; border: 1px solid var(--border);
+    border-left: 5px solid var(--tech);
+    padding: 18px 22px; margin: 14px 0; border-radius: 6px;
+  }
+  .layer-title {
+    font-weight: 800; color: var(--tech); font-size: 15px; margin-bottom: 8px;
+  }
+
+  .faq-card {
+    background: #f8fafc; border: 1px solid var(--border);
+    padding: 14px 18px; margin: 12px 0; border-radius: 4px;
+  }
+  .faq-q { font-weight: 700; color: var(--jr-dark); margin-bottom: 6px; }
+  .faq-a { font-size: 13px; color: var(--text); line-height: 1.7; }
+
+  .ask-card {
+    background: #fff; border: 1px solid var(--border);
+    border-left: 4px solid var(--jr-green);
+    padding: 18px 22px; margin: 14px 0; border-radius: 6px;
+  }
+  .ask-title { font-weight: 800; color: var(--jr-dark); font-size: 15px; margin-bottom: 8px; }
+  .ask-jr { color: var(--jr-green); font-weight: 700; }
+  .ask-skyer { color: var(--skydog); font-weight: 700; }
+
+  .closing {
+    margin-top: 60px; padding: 30px 32px;
+    background: linear-gradient(135deg, #f5faf7 0%, #ecfdf5 50%, #f0fdf4 100%);
+    border: 1px solid #d6eadd; border-radius: 6px;
+    font-size: 15px; line-height: 1.95;
+  }
+  .closing strong { color: var(--jr-dark); }
+  .quote {
+    border-left: 3px solid var(--animal); padding-left: 18px;
+    margin: 18px 0; font-style: italic; color: #4b5563;
+  }
+
+  .footer {
+    margin-top: 50px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); text-align: center;
+  }
+
+  .badge {
+    display: inline-block; background: var(--jr-green); color: #fff;
+    font-size: 11px; padding: 3px 10px; border-radius: 12px;
+    margin-right: 6px; font-weight: 600;
+  }
+  .badge-wildlife { background: var(--animal); }
+  .badge-tech { background: var(--tech); }
+  .badge-skydog { background: var(--skydog); }
+  .badge-kemono { background: var(--kemono); }
+  .badge-commit { background: var(--commit); }
+  .badge-new { background: #dc2626; }
+  ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+
+  .toc {
+    background: #f9f9f6; border: 1px solid var(--border);
+    padding: 18px 24px; border-radius: 6px;
+    margin-bottom: 40px; font-size: 14px;
+  }
+  .toc a { color: var(--jr-dark); text-decoration: none; display: block; padding: 4px 0; }
+  .toc a:hover { color: var(--jr-green); text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="meta">JR東日本スタートアッププログラム 2026 春募集 ／ ENTRY PROPOSAL v4.0 FINAL（提出用最新版）</div>
+    <h1 class="title">鉄道を守る。<br>それは、人と野生動物、そして地球の未来を守ること。</h1>
+    <div class="subtitle">〜 SKY DOG × KEMONO MAP で実現する世界初の Wildlife-Positive Railway 〜</div>
+    <div class="oneliner">
+      シカ衝突件数を減らすことは、運休損失を減らすことであり、<br>
+      <span class="wildlife-tag">同時に、年間数千頭規模の野生動物の命を救う</span>ことでもある。<br>
+      <strong>すでに存在する2つのプロダクトで、明日から始められます。</strong>
+    </div>
+  </div>
+
+  <div class="toc">
+    <strong>目次</strong>
+    <a href="#s0">0. 本提案の核心 — 鉄道・人・野生動物・地球の未来を守る新しい運用思想</a>
+    <a href="#sprod">★ 中核プロダクト：SKY DOG × KEMONO MAP</a>
+    <a href="#scommit">★ skyerの本気度 — 共創のための自己投資と「徹底したリスク排除」</a>
+    <a href="#s1">1. 解決する具体的課題 — JR東日本公開ニーズへの直接回答</a>
+    <a href="#s2">2. 提案サービス — 4つの統合ドローンソリューション</a>
+    <a href="#s3">3. なぜskyerなのか — 競合不在の差別化</a>
+    <a href="#s4">4. なぜ SKY DOG × KEMONO MAP で本当に減らせるのか</a>
+    <a href="#s5">5. 実証ロードマップと段階的検証ロジック（Phase 0：3ヶ月）</a>
+    <a href="#s9">9. 求める支援 — 協業を即座に開始するための4大具体的要求</a>
+    <a href="#s10">10. 締めの一言</a>
+  </div>
+
+  <h2 id="s0" class="wildlife-section">0. 本提案の核心 — 鉄道、人、野生動物、そして地球の未来を守る新しい運用思想</h2>
+
+  <p>従来、鉄道インフラの鳥獣・動物対策は<strong>「鉄道の資産を守る」</strong>という局所的な観点だけで語られてきました。しかし、シカ衝突を未然に防ぐという行為は、<strong>乗客や現場の安全（人）を守り、野生動物の命（生物多様性）を救い、持続可能な国際標準インフラ（地球）の未来を守る</strong>ことに直結します。</p>
+
+  <div class="triple-shield">
+    <div class="shield-box">
+      <div class="shield-label">RAILWAY &amp; PEOPLE</div>
+      <div class="shield-title">鉄道と人を守る</div>
+      <div class="shield-desc">
+        <ul>
+          <li>運休・輸送障害の削減（定時運行の維持）</li>
+          <li>復旧コスト・車両修繕費の削減</li>
+          <li>乗客の安全確保と現場乗務員の負担軽減</li>
+        </ul>
+      </div>
+    </div>
+    <div class="shield-box wildlife">
+      <div class="shield-label">WILDLIFE &amp; EARTH</div>
+      <div class="shield-title">動物と地球を守る</div>
+      <div class="shield-desc">
+        <ul>
+          <li>列車衝突死の削減（年間数千頭規模の救命）</li>
+          <li>生息地分断の緩和と沿線生物多様性の保全</li>
+          <li>TNFD開示をリードするネイチャーポジティブ実践</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-wildlife">
+    本提案は<strong>「動物を排除する」のではなく「動物を傷つけずに、列車との接近そのものを発生させない」</strong>運用設計です。これは "Wildlife-Friendly Infrastructure" として国際的に評価される思想であり、TNFD開示の「自然への負のインパクト削減」関連項目に対し、救命動物数という<strong>定量データで貢献し得ます</strong>。
+  </div>
+
+  <!-- 中核プロダクト -->
+  <h2 id="sprod" class="product-section">★ 中核プロダクト：SKY DOG × KEMONO MAP <span class="badge badge-skydog">PRODUCT</span></h2>
+
+  <p>本提案は、skyerが<strong>すでに事業展開している2つのプロダクト</strong>を、JR東日本沿線環境に適用・進化させるものです。「これから作る」ではなく「<strong>すでに動いている</strong>」プロダクトであることが、本提案の実現確度を決定的に高めます。</p>
+
+  <div class="product-grid">
+    <div class="product-card skydog">
+      <div class="product-brand skydog">FIELD OPERATION</div>
+      <div class="product-name skydog">SKY DOG</div>
+      <div class="product-tagline">— 鳥獣の生息域調査・追い払い・運搬の統合ドローンサービス —</div>
+      <div style="font-size:13px; color:var(--text);">自治体6年運用実績を商品化済み</div>
+    </div>
+    <div class="product-card kemono">
+      <div class="product-brand kemono">DATA PLATFORM</div>
+      <div class="product-name kemono">KEMONO MAP</div>
+      <div class="product-tagline">— 出没予測 × 介入最適化のデータ型プラットフォーム —</div>
+      <div style="font-size:13px; color:var(--text);">AIによる出没予測、データ提供基盤</div>
+    </div>
+  </div>
+
+  <!-- コミットメント -->
+  <h2 id="scommit" class="commit-section">★ skyerの本気度 — 共創のための自己投資と「徹底したリスク排除」 <span class="badge badge-commit">COMMITMENT</span></h2>
+
+  <p>本事業は受託案件ではなく、<strong>skyerの中期経営計画における最優先プロジェクト</strong>です。実証へと進むにあたり、JR東日本様が抱える<strong>「社内調整・コスト・事故リスク」を完全に排除する</strong>以下の4つの安心設計をお約束します。</p>
+
+  <div class="commit-card">
+    <div class="commit-card-title">① 柔軟な実証コストスキーム（共同投資も可能）</div>
+    Phase 0（最初の3ヶ月）の実証費用は skyer の<strong>初年度自己投資（500万円）</strong>で走り切る覚悟ですが、JR東日本様からの実証予算の支援（共同投資）があれば、検証エリアの拡大や AI 高度化など、事業化をさらに加速させることが可能です。貴社のスタンスに合わせた柔軟なスキーム設計に対応します。
+  </div>
+
+  <div class="commit-card">
+    <div class="commit-card-title">② 現場の社内調整負担を極小化する「黒衣（くろこ）運用」</div>
+    列車の運行を止める<strong>「線路閉鎖」を原則不要</strong>とする運用プロトコルを構築します。飛行許可や関係各所への安全申請等の実務も skyer がすべて巻き取り、現場の通常業務を圧迫しません。
+  </div>
+
+  <div class="commit-card">
+    <div class="commit-card-title">③ 泥臭いアナログデータの「クレンジング代行」</div>
+    予測に必要な過去データは、<strong>手書き日報や非構造化データ等、形式を問いません</strong>。skyer の専任チームが現場のデータデジタル化・クレンジング作業から全面的に伴走します。
+  </div>
+
+  <div class="commit-card">
+    <div class="commit-card-title">④ インフラ特化型保険による「責任の明確化」</div>
+    万が一の輸送障害や設備損壊に備え、インフラ環境での運用を前提とした<strong>大型対物・対人賠償責任保険（数億円規模）</strong>にあらかじめ加入した上で実証に臨みます。
+  </div>
+
+  <!-- 1. 解決する課題 -->
+  <h2 id="s1">1. 解決する具体的課題 — JR東日本公開ニーズへの直接回答</h2>
+  <table>
+    <thead><tr><th style="width:50%">JR東日本の公開課題（原文要旨）</th><th>対応プロダクト</th><th>skyer実績・ノウハウ</th></tr></thead>
+    <tbody>
+      <tr><td>線路沿線のシカ等動物との衝突</td><td><span class="badge badge-skydog">SKY DOG</span><span class="badge badge-kemono">KEMONO MAP</span></td><td>イノシシ・シカ鳥獣害対策実績</td></tr>
+      <tr><td>駅ホームのハトのフン害、架線カラス営巣</td><td><span class="badge badge-skydog">SKY DOG</span><span class="badge badge-kemono">KEMONO MAP</span></td><td>カワウ繁殖抑制、巣除去実績</td></tr>
+      <tr><td>沿線樹木倒下・線路用地への侵入監視</td><td><span class="badge badge-skydog">SKY DOG</span></td><td>重量物回収・運搬／鳥取砂丘パトロール6年継続</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 2. 提案サービス -->
+  <h2 id="s2">2. 提案サービス — 4つの統合ドローンソリューション</h2>
+
+  <div class="pillar">
+    <div class="pillar-title"><span class="pillar-icon">A</span>沿線広域パトロールドローン <span class="badge badge-skydog">SKY DOG</span></div>
+    駅・線路用地の侵入監視、夜間自動巡回。
+  </div>
+
+  <div class="pillar wildlife-pillar">
+    <div class="pillar-title"><span class="pillar-icon">B</span>鳥獣共生ドローン <span class="badge badge-skydog">SKY DOG</span> <span class="badge badge-kemono">KEMONO MAP</span> <span class="badge badge-wildlife">Wildlife-Positive</span></div>
+    出没予測に基づき、事前に出動してシカ・イノシシ等を傷つけずに忌避・誘導。
+  </div>
+
+  <div class="pillar wildlife-pillar">
+    <div class="pillar-title"><span class="pillar-icon">C</span>営巣・フン害対策ドローン <span class="badge badge-skydog">SKY DOG</span> <span class="badge badge-wildlife">Wildlife-Positive</span></div>
+    駅構内ハト、架線カラス、蜂の巣の事前検知と非殺傷除去。
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-title"><span class="pillar-icon">D</span>沿線重量物回収・運搬ドローン <span class="badge badge-skydog">SKY DOG</span></div>
+    倒木撤去、線路支障物の搬送、災害時の緊急対応。
+  </div>
+
+  <!-- 3. なぜskyer -->
+  <h2 id="s3">3. なぜskyerなのか — 競合不在の差別化</h2>
+  <p>自治体での<strong>6年継続運用</strong>という「日本で唯一の長期信頼資産」を有しており、即座に鉄道沿線フィールドへ転用可能です。</p>
+  <p>既存のドローン点検各社が持つ「測る・見る」技術とは全く異なる、<strong>「予測する・行動する・命を救う」生体運用の完全空白領域</strong>を扱います。</p>
+
+  <!-- 4. なぜ減らせるのか -->
+  <h2 id="s4" class="product-section">4. なぜ SKY DOG × KEMONO MAP で本当に減らせるのか <span class="badge badge-new">CORE LOGIC</span></h2>
+
+  <h3>【第1層】指向性忌避誘導によるパニックの防止</h3>
+  <div class="layer-card">
+    <p>急に目の前に現れて驚かす（Jump Scare）のではなく、<strong>AI画像認識で個体を捕捉後、ドローンの接近経路（進入角度）を自動制御</strong>します。</p>
+    <p>線路側から山側・路外へ向かって<strong>斜め後方から音響（ライオン咆哮等）× 光 × 接近圧</strong>をかけることで、「面での圧力」により動物が線路内に誤侵入するパニックを<strong>構造的に防ぎ</strong>、安全な路外へと確実に誘導します。</p>
+  </div>
+
+  <h3>【第2層】技術的フィージビリティと絶対的フェイルセーフ設計</h3>
+
+  <div class="layer-card">
+    <div class="layer-title">▎架線からの安全離隔距離（最小10m以上）</div>
+    高圧電流への干渉および接触を回避するため、<strong>RTK-GPSとLiDAR</strong>を用いたリアルタイム・ジオフェンスにより接近不可の制御を強制。
+  </div>
+
+  <div class="layer-card">
+    <div class="layer-title">▎列車通過時の事前自動退避時間（15分前に完了）</div>
+    運行ダイヤおよび列車接近検知システムと連動。遅延時もAPI連動で自動スライド退避を実施。
+  </div>
+
+  <div class="layer-card">
+    <div class="layer-title">▎落下分散を考慮した退避安全地帯（線路中心線から30m以上）</div>
+    高度30mからの最悪の落下分散範囲（半径30m）を考慮し、<strong>15分前には線路から30m以上離れた指定ドックへ退避・着陸</strong>。列車風リスクを完全ゼロ化。
+  </div>
+
+  <h3>【第3層】FAQ（カウンターロジック）</h3>
+
+  <div class="faq-card">
+    <div class="faq-q">Q. 悪天候時はドローンが飛べないのではないか？</div>
+    <div class="faq-a">A. 技術的には飛行可能ですが、絶対的な安全のため無理な飛行は行いません。本提案の強みは<strong>既存の柵等とのハイブリッド運用</strong>です。天候の良い日に集中して強烈な恐怖を刷り込むことで、悪天候時であっても動物が自発的に近寄らなくなる<strong>「残存忌避効果」</strong>を発揮し、年間を通じた衝突抑制を実現します。</div>
+  </div>
+
+  <div class="faq-card">
+    <div class="faq-q">Q. 全線に展開すると、既存の柵よりコスト（ROI）が悪化するのでは？</div>
+    <div class="faq-a">A. 実は、柵の方が非現実的なコスト（初期投資＋維持費）になります。SKY DOG の最大の違いは<strong>『ドック自体が可搬（移動可能）であること』</strong>です。シカの出没トレンドの変化に合わせて機動的にドックを移動させるため、動かせない<strong>「莫大な固定資産（サンクコスト）」から「最適化できる流動資産」への転換</strong>となり、圧倒的に合理的な選択となります。</div>
+  </div>
+
+  <!-- 5. 実証ロードマップ -->
+  <h2 id="s5">5. 実証ロードマップと段階的検証ロジック（採択後3ヶ月のPhase 0）</h2>
+
+  <div class="callout">
+    <strong>【実証フィールドの選定に関する基本スタンス】</strong><br>
+    本提案書では「山田線」または「上越線」を候補案として挙げておりますが、貴社内での調整状況や現場のニーズ等を踏まえ、<strong>貴社内で最も検証に最適と判断される路線のご希望に100%沿って</strong>柔軟に実証フィールドを決定いたします。
+  </div>
+
+  <table>
+    <thead><tr><th>時期</th><th>アクションと検証内容</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Month 1<br>(W1 - W4)</strong></td>
+        <td>
+          <strong>【運用準備と泥臭いデータクレンジング】</strong><br>
+          手書き日報等もskyerがデジタル化代行。線路閉鎖不要のプロトコル確立と、行政への許可申請を完遂。初期予測モデルv0を構築。<br>
+          <span style="color:var(--muted); font-size:12px;">※航空法リスク排除のため、Phase 0は完全自動飛行にこだわらず、専任スタッフによる目視内／補助者あり飛行（レベル2・3）で確実かつ迅速に「忌避効果の証明」を実施します。</span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Month 2<br>(W5 - W8)</strong></td>
+        <td>
+          <strong>【先行運用・予測精度測定】</strong><br>
+          SKY DOG先行運用（介入なし、検知のみ）。実出没データとKEMONO MAP予測の照合により<strong>初期予測精度を測定</strong>。営巣箇所の非殺傷除去を順次実施。
+        </td>
+      </tr>
+      <tr style="background:#fef3c7">
+        <td><strong>Month 3<br>(W9 - W12)</strong></td>
+        <td>
+          <strong>【介入運用・対照群比較・最終評価】</strong><br>
+          音響・光・接近圧による山側への指向性誘導を開始。介入区間と非介入区間（対照区間）の衝突件数比較。<br>
+          <strong>目標KPI：衝突件数▲20〜35%、予測精度60%以上。</strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 9. 求める支援 -->
+  <h2 id="s9">9. 求める支援 — 協業を即座に開始するための「4大具体的要求」</h2>
+  <p>本プログラムにおいて、skyerがJR東日本様に求める支援は、現場の負担を最小限に抑えつつ、実証の確度を最大化するための以下の<strong>「4つのアセット連携」</strong>です。</p>
+
+  <div class="ask-card">
+    <div class="ask-title">① 実証フィールドとドック設置場所の提供</div>
+    <div><span class="ask-jr">JR様への期待：</span>貴社の意向に沿った任意のローカル線1区間（20〜30km圏内）のご提供と、可搬式ドックを置くための用地調整（1〜2箇所、電源確保可能な駅構内等）。</div>
+    <div style="margin-top:6px;"><span class="ask-skyer">skyerの役割：</span>現地調査、ドック設置、保守はすべて自社リソースで完結。保安要員手配や線閉の手間は発生させません。</div>
+  </div>
+
+  <div class="ask-card">
+    <div class="ask-title">② 関係部局との「ファストトラック」接続</div>
+    <div><span class="ask-jr">JR様への期待：</span>サステナビリティ部門、安全関係部門、保線技術センター等との合同キックオフ会議設定と、調整窓口の設置。</div>
+    <div style="margin-top:6px;"><span class="ask-skyer">skyerの役割：</span>航空法、自治体、警察、電波法関連の手続きなど、行政との折衝実務はすべて代行・巻き取ります。</div>
+  </div>
+
+  <div class="ask-card">
+    <div class="ask-title">③ 運行データおよび過去データの連携協力</div>
+    <div><span class="ask-jr">JR様への期待：</span>対象区間の過去5年分の動物衝突記録（手書き・Excel等不問）の開示。および、列車通過15分前の自動退避のための運行情報（API等）の連携協力。</div>
+    <div style="margin-top:6px;"><span class="ask-skyer">skyerの役割：</span>受領したアナログデータのデジタル化、データクレンジングはすべて代行します。</div>
+  </div>
+
+  <div class="ask-card">
+    <div class="ask-title">④ 実証費用に関する戦略的スキームの協議</div>
+    <div><span class="ask-jr">JR様への期待：</span>skyer側の自己投資（500万円）をベースとしつつ、貴社「実証予算」を用いた共同投資スキーム（費用支援オプション）の有無に関する協議。支援予算がある場合はエリア拡大や期間短縮に充当します。</div>
+    <div style="margin-top:6px;"><span class="ask-skyer">skyerの役割：</span>予算支援の有無に関わらず、Phase 0を走り切る財務基盤は担保済みです。貴社のスタンスに合わせた柔軟な契約設計に応じます。</div>
+  </div>
+
+  <!-- 10. 締めの一言 -->
+  <h2 id="s10">10. 締めの一言</h2>
+  <div class="closing">
+    <p>鉄道沿線の "鳥獣"、"営巣"、"侵入"、"倒木"。<br>
+    これらは<strong>毎日、現場で誰かが対処している、ごく具体的な「痛み」</strong>です。<br>
+    同時に、これらの対処の裏側には<strong>毎日、命を落としている野生動物</strong>がいます。</p>
+    <p>私たち skyer は、<strong>動物を傷つけずに共に守る</strong>運用に向き合い続け、その経験を<strong style="color:#ea580c">SKY DOG</strong>と<strong style="color:#6366f1">KEMONO MAP</strong>という2つのプロダクトに結晶化させました。</p>
+    <p><strong>"これから作る" 構想ではなく、"すでに動いている" プロダクト</strong>をJR東日本沿線で進化させたい。そのために、<strong>初年度500万円の自己投資、専任2名の常駐、あらゆるリスク共有の選択肢</strong>を提示します。</p>
+    <div class="quote">
+      "鉄道を守る。それは、人と野生動物、そして地球の未来を守ること。"<br>
+      この両立させる運用こそが、これからの鉄道インフラの新しい標準です。
+    </div>
+    <p>JR東日本沿線から、その世界初の標準を、共に世界に示しませんか。</p>
+  </div>
+
+  <div class="footer">
+    株式会社 skyer ／ JR東日本スタートアッププログラム 2026 春募集 応募提案書 v4.0 FINAL（提出用最新版）<br>
+    更新日：2026年5月20日 ／ 応募締切：2026年5月21日24時
+  </div>
+
+</div>
+</body>
+</html>
